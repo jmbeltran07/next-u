@@ -8,24 +8,88 @@
     <title>Educacion de Jose Manuel Beltran Loreto</title>
   </head>
   <body>
-    <svg viewBox="0 0 200 15">
-      <image xlink:href="images/jmbl_logo.svg" x="0" y="0" height="15" width="35"/>
-    </svg>
-    <h1>Educacion</h1>
-    <h2>Jose Manuel Beltran Loreto</h2>
-    <h3>Menu</h3>
-    <p>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="educacion.html">Educacion</a></li>
-        <li><a href="experiencia.html">Experiencia</a></li>
-      </ul>
+    <header>
+      <svg viewBox="0 0 200 15">
+        <image xlink:href="images/jmbl_logo.svg" x="0" y="0" height="15" width="35"/>
+      </svg>
+      <h1>Curriculum Vitae</h1>
+      <h2>Jose Manuel Beltran Loreto</h2>
+    </header>
+    <nav>
+      <p>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="educacion.html">Educacion</a></li>
+          <li><a href="experiencia.html">Experiencia</a></li>
+        </ul>
+      </p>
+    </nav>
+    <section>
+      <article>
+        <h3>Educacion</h3>
+        <p>
+          <table border="1">
+            <thead>
+              <tr>
+                <th>Año</th>
+                <th>institucion</th>
+                <th>lugar</th>
+                <th>¿Culmino?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2014</td>
+                <td>ITESM</td>
+                <td>Guadalajara</td>
+                <td>Si</td>
+              </tr>
+              <tr>
+                <td>2013</td>
+                <td>University of Wollongong</td>
+                <td>Australia, NSW</td>
+                <td>Si</td>
+              </tr>
+            </tbody>
+          </table>
+      </article>
+      <article>
+        <h2>Agregar Estudios</h2>
+        <form autocomplete="on" name="Agregar estudios">
+          <fieldset>
+            <legend>Agregar Estudios</legend>
+            <p>
+              <label><strong>Año:</strong></label>
+              <input type="number" name="anio" placeholder="2017" required>
+            </p>
+            <p>
+            <label><strong>Institucion:</strong></label>
+            <input type="text" name="institucion" placeholder="Escriba aqui la institucion" required>
+            </p>
+            <p>
+              <label><strong>Lugar:</strong></label>
+              <textarea name="Lugar" rows="4" cols="40"></textarea>
+            </p>
+      			<p>
+              <label for="culmino">Culmino?: </label>
+              <input type="radio" name="culmino" required> Si
+      			  <input type="radio" name="culmino" required> No
+            </p>
+            <p>
+        			<input type="submit" value="Registrar">
+        		</p>
+          </fieldset>
+        </form>
+      </article>
+    </section>
     </p>
-    <h3>Educacion</h3>
-    <p>
+    <footer>
+      Derechos Reservados <br>
       <ul>
-        <li>Hola educacion</li>
+        <li><strong>Contacto: </strong> jm.beltran.loreto@gmail.com</li>
+        <li><strong>Telefono: </strong> 3313333333</li>
+        <li><strong>Direccion: </strong> Mi casa, mi ciudad, mi pais</li>
       </ul>
-    </p>
+    </footer>
   </body>
 </html>
