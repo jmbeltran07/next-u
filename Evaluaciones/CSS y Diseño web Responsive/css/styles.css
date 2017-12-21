@@ -9,7 +9,22 @@ body {
   margin: 0;
   border: 0;
   background-color: #02010a;
+  animation-name: rebote;
+	animation-duration: 1s;
 }
+
+@-webkit-keyframes rebote{
+	0%{
+		margin-top: 150%
+	}
+	60%{
+		margin-top: -5%
+	}
+  100%{
+    margin-top: 0%
+  }
+}
+
 
 .titulo{
   padding-left: 20px;
