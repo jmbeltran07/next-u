@@ -1,0 +1,55 @@
+body{
+  background-image: url("../img/kitchen.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.content{
+  background: rgba(221,235,245, 0.7);
+}
+
+
+.lateral{
+  background: rgba(221,235,245, 0.9);
+  margin: 6px;
+  padding-top: 10px;
+}
+
+.favs{
+  margin-top: 10px;
+}
+
+.post{
+  background-color: #ffebf5;
+  margin: 6px;
+}
+
+.posts{
+  margin-left: 6px;
+}
+
+a{
+  color: gray;
+}
+
+h1{
+  color: gray;
+}
+
+h3{
+  color: gray;
+}
+
+h4{
+  color: gray;
+}
+
+.comentario{
+  border-style: groove;
+  margin: 2px;
+}
+
+.comnt{
+  color: gray;
+}
