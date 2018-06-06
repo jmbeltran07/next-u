@@ -22,3 +22,11 @@ function setSearch() {
 }
 
 setSearch()
+
+$('#buscar').click( () => {
+  $.get("getAll", (response, status) => alert("Data: " + response + "\nStatus: " + status))
+  $('#lista').removeClass('invisible')
+  //$.get(url, {name: valorBuscado}, function(response){
+  //  appendHTML(response);
+  //})
+})
