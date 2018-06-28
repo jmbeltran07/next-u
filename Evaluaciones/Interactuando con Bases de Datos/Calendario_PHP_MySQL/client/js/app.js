@@ -18,14 +18,14 @@ class EventsManager {
           type: 'GET',
           success: (data) =>{
             if (data.msg=="OK") {
-              this.poblarCalendario(data.eventos)
+              this.poblarCalendario(data.events)
             }else {
               alert(data.msg)
               window.location.href = 'index.html';
             }
           },
           error: function(){
-            alert("error en la comunicación con el servidor");
+            alert("obtenerDataInicial: error en la comunicación con el servidor");
           }
         })
 
@@ -38,7 +38,7 @@ class EventsManager {
         		center: 'title',
         		right: 'month,agendaWeek,basicDay'
         	},
-        	defaultDate: '2016-11-01',
+        	defaultDate: '2018-06-01',
         	navLinks: true,
         	editable: true,
         	eventLimit: true,
@@ -109,10 +109,6 @@ class EventsManager {
                 end: $('#end_date').val()+" "+$('#end_hour').val()
               })
             }
-
-
-
-
           }else {
             alert(data.msg)
           }
@@ -165,7 +161,6 @@ class EventsManager {
         end_date = end.substr(0,10)
         start_hour = start.substr(11,8)
         end_hour = end.substr(11,8)
-
 
         form_data.append('id', id)
         form_data.append('start_date', start_date)
