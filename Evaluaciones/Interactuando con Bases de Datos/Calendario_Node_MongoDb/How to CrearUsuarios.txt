@@ -1,0 +1,10 @@
+Iniciar el proyecto.
+
+Acceder a:
+http://localhost:8082/creadorDeUsuarios
+
+este webservice de tipo get crea un usuario con las siguientes caracteristicas:
+email: "user1@gmail.com",
+name: "usuario 1",
+password: "pass1",
+birthday: "1991-03-08"
