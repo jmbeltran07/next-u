@@ -1,97 +1,97 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Javascript: lo esencial</title>
-  </head>
-  <body>
-    <h1>Estudiantes</h1>
-    <div>
-      <button type="button" name="mostrar todos los estudiantes" id="todos">Mostrar estudiantes</button>
-    </div>
-    <div>
-      <button type="button" name="nota promedio" id="promedio">calcular promedio</button>
-    </div>
-    <div>
-      <button type="button" name="estudiante con mejor nota" id="mejor">Mejor estudiante</button>
-    </div>
-    <div>
-      <button type="button" name="Estudiante con peor nota" id="peor">Peor estudiante</button>
-    </div>
-    <div>
-      <h2>Todos los estudiantes</h2>
-      <table id="tabla" style="border: 1px solid black">
-      </table>
-    </div>
-    <div>
-      <p id=promedio_l>Nota promedio:</p>
-    </div>
-    <div>
-      <p id=mejor_l>Mejor Estudiante:</p>
-    </div>
-    <div>
-      <p id=peor_l>Peor Estudiante:</p>
-    </div>
-    <script type="text/javascript">
-      var estudiantes = [
-        {"codigo": "A01", "nombre": "jose", "nota": 99},
-        {"codigo": "A02", "nombre": "manuel", "nota": 85},
-        {"codigo": "A03", "nombre": "andrea", "nota": 87},
-        {"codigo": "A04", "nombre": "estela", "nota": 79},
-        {"codigo": "A05", "nombre": "diana", "nota": 81},
-        {"codigo": "A06", "nombre": "patricia", "nota": 92},
-        {"codigo": "A07", "nombre": "guillermo", "nota": 96},
-        {"codigo": "A08", "nombre": "maria", "nota": 98},
-        {"codigo": "A09", "nombre": "daniel", "nota": 74},
-        {"codigo": "A10", "nombre": "andres", "nota": 83}
-      ];
 
-      var boton1 = document.getElementById("todos");
-      var boton2 = document.getElementById("promedio");
-      var boton3 = document.getElementById("mejor");
-      var boton4 = document.getElementById("peor");
+<head>
+  <meta charset="utf-8">
+  <title>Javascript: lo esencial</title>
+</head>
 
-      var tabla = document.getElementById("tabla");
-      var promedio = document.getElementById("promedio_l");
-      var mejor = document.getElementById("mejor_l");
-      var peor = document.getElementById("peor_l");
-
-      boton1.onclick = function(){
-        var html = "<tr><th>Codigo</th><th>Nombre</th><th>Nota</th></tr>";
-        for(alumno in estudiantes){
-          html += `<tr><td>${estudiantes[alumno]["codigo"]}</td><td>${estudiantes[alumno]["nombre"]}</td><td>${estudiantes[alumno]["nota"]}</td></tr>`
-        }
-        tabla.innerHTML = html;
-      }
-
-      boton2.onclick = function(){
-        var suma = 0;
-        for(alumno in estudiantes){
-          suma += estudiantes[alumno].nota;
-        }
-        promedio.innerHTML = `Nota promedio: ${suma/estudiantes.length}`
-      }
-
-      boton3.onclick = function(){
-        estudiantes.sort(GetSortOrder("nota"))
-        mejor.innerHTML = `Mejor Estudiante: ${estudiantes[estudiantes.length-1].nombre}`
-      }
-
-      boton4.onclick = function(){
-        estudiantes.sort(GetSortOrder("nota"))
-        peor.innerHTML = `Peor Estudiante: ${estudiantes[0].nombre}`
-      }
-
-      function GetSortOrder(prop) {
-        return function(a, b) {
-            if (a[prop] > b[prop]) {
-                return 1;
-            } else if (a[prop] < b[prop]) {
-                return -1;
-            }
-            return 0;
-        }
+<body>
+  <h1>Registro de Estudiantes</h1>
+  <div>
+    <label for="">Codigo</label>
+    <br>
+    <input id="codigoInput" type="text" name="codigo" value="">
+    <br>
+    <label for="">Nombre</label>
+    <br>
+    <input id="nombreInput" type="text" name="nombre" value="">
+    <br>
+    <label for="">Nota</label>
+    <br>
+    <input id="notaInput" type="text" name="nota" value="">
+    <br>
+  </div>
+  <div>
+    <button type="button" name="registrar" id="todos">Registrar estudiante</button>
+    <button type="button" name="nota promedio" id="promedio">calcular promedio</button>
+    <button type="button" name="estudiante con mejor nota" id="mejor">Mejor estudiante</button>
+    <button type="button" name="Estudiante con peor nota" id="peor">Peor estudiante</button>
+  </div>
+  <h1>Listado de Estudiantes</h1>
+  <table id="tabla">
+    <tr>
+      <th>Codigo</th>
+      <th>Nombre</th>
+      <th>Nota</th>
+    </tr>
+  </table>
+  <style media="screen">
+    table, th, td {
+     border: 1px solid black;
     }
-    </script>
-  </body>
+  </style>
+  <script type="text/javascript">
+    var estudiantes = [];
+
+    var boton1 = document.getElementById("todos");
+    var boton2 = document.getElementById("promedio");
+    var boton3 = document.getElementById("mejor");
+    var boton4 = document.getElementById("peor");
+
+    var tabla = document.getElementById("tabla");
+    var codigoIn = document.getElementById("codigoInput")
+    var nombreIn = document.getElementById("nombreInput")
+    var notaIn = document.getElementById("notaInput")
+
+    boton1.onclick = function() {
+      estudiantes.push({"codigo":codigoIn.value,"nombre":nombreIn.value,"nota":Number(notaIn.value)})
+      var html = "<tr><th>Codigo</th><th>Nombre</th><th>Nota</th></tr>";
+      for (alumno in estudiantes) {
+        html += `<tr><td>${estudiantes[alumno]["codigo"]}</td><td>${estudiantes[alumno]["nombre"]}</td><td>${estudiantes[alumno]["nota"]}</td></tr>`
+      }
+      tabla.innerHTML = html;
+    }
+
+    boton2.onclick = function() {
+      var suma = 0;
+      for (alumno in estudiantes) {
+        suma += estudiantes[alumno].nota;
+      }
+      alert(`Nota promedio: ${suma/estudiantes.length}`)
+    }
+
+    boton3.onclick = function() {
+      estudiantes.sort(GetSortOrder("nota"))
+      alert(`Mejor Estudiante: ${estudiantes[estudiantes.length-1].nombre}`)
+    }
+
+    boton4.onclick = function() {
+      estudiantes.sort(GetSortOrder("nota"))
+      alert(`Peor Estudiante: ${estudiantes[0].nombre}`)
+    }
+
+    function GetSortOrder(prop) {
+      return function(a, b) {
+        if (a[prop] > b[prop]) {
+          return 1;
+        } else if (a[prop] < b[prop]) {
+          return -1;
+        }
+        return 0;
+      }
+    }
+  </script>
+</body>
+
 </html>
